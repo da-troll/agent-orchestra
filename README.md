@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# AgentOrchestra 🎼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Visual drag-and-drop pipeline designer for multi-agent workflows, powered by Claude.
 
-Currently, two official plugins are available:
+**Live:** https://mvp.trollefsen.com/2026-04-10-agentorchestra/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What it does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+AgentOrchestra lets you visually design and execute multi-agent AI pipelines. Drop nodes onto a canvas, connect them into a DAG, set each agent's personality and model, then hit **Run** — data flows through the graph in topological order and results appear in real time.
 
-## Expanding the ESLint configuration
+Inspired by [garrytan/gbrain](https://github.com/garrytan/gbrain).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **4 node types:**
+  - **Input** — text value that feeds downstream agents
+  - **Agent** — Claude model with a configurable system prompt
+  - **Transform** — lightweight Claude step for translation, reformatting, etc.
+  - **Output** — collects and displays final results
+- **DAG execution** — topological sort ensures correct ordering even with fan-out/merge
+- **Real-time status** — nodes pulse amber while running, turn green on success, red on error
+- **Multi-model** — per-agent model selection (Haiku for speed, Sonnet for depth)
+- **Pre-loaded example** — Topic → Summariser + Critic → Synthesiser → Output
+- **MiniMap** for pipeline overview at any zoom level
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React + TypeScript + Vite
+- [@xyflow/react](https://reactflow.dev/) for the canvas
+- Tailwind CSS
+- Claude API (Anthropic) — called directly from the browser
+
+## Setup
+
+```bash
+git clone <repo>
+cd 2026-04-10-agentorchestra
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open the app, click ⚙ and paste your [Anthropic API key](https://console.anthropic.com/). Your key is stored in localStorage and never leaves your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build   # outputs to dist/
 ```
+
+---
+
+*Built overnight by the Nightly MVP Builder — Wilson 🏐*

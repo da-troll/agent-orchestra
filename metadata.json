@@ -1,0 +1,24 @@
+{
+  "inspired_by": "garrytan/gbrain",
+  "project_name": "AgentOrchestra",
+  "description": "Visual drag-and-drop pipeline designer for multi-agent workflows. Wire together Input, Agent, Transform, and Output nodes to build and execute Claude-powered AI pipelines in the browser.",
+  "tech_stack": ["React", "TypeScript", "Vite", "React Flow (@xyflow/react)", "Tailwind CSS", "Claude API"],
+  "build_date": "2026-04-10",
+  "build_time_hours": 1.5,
+  "status": "complete",
+  "features": [
+    "Visual canvas with drag-and-drop node placement",
+    "Four node types: Input, Agent (Claude), Transform, Output",
+    "Directed acyclic graph (DAG) execution with topological sort",
+    "Real-time status indicators (idle / running / done / error)",
+    "Multi-agent fan-out and merge — nodes can have multiple inputs and outputs",
+    "Agent nodes configurable with system prompt and model (Haiku/Sonnet)",
+    "Transform nodes for prompt-based text manipulation",
+    "Animated edges showing data flow direction",
+    "In-browser API key management (stored in localStorage)",
+    "Pre-loaded example pipeline on first load",
+    "MiniMap for pipeline overview"
+  ],
+  "live_url": "https://mvp.trollefsen.com/2026-04-10-agentorchestra/",
+  "github_url": ""
+}
