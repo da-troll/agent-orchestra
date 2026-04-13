@@ -2,7 +2,14 @@
   "inspired_by": "garrytan/gbrain",
   "project_name": "AgentOrchestra",
   "description": "Visual drag-and-drop pipeline designer for multi-agent workflows. Wire together Input, Agent, Transform, and Output nodes to build and execute Claude-powered AI pipelines in the browser.",
-  "tech_stack": ["React", "TypeScript", "Vite", "React Flow (@xyflow/react)", "Tailwind CSS", "Claude API"],
+  "tech_stack": [
+    "React",
+    "TypeScript",
+    "Vite",
+    "React Flow (@xyflow/react)",
+    "Tailwind CSS",
+    "Claude API"
+  ],
   "build_date": "2026-04-10",
   "build_time_hours": 1.5,
   "status": "complete",
@@ -20,5 +27,5 @@
     "MiniMap for pipeline overview"
   ],
   "live_url": "https://mvp.trollefsen.com/2026-04-10-agentorchestra/",
-  "github_url": "https://github.com/da-troll/nightly-mvp-2026-04-10-agentorchestra"
+  "github_url": "https://github.com/da-troll/agentorchestra"
 }
